@@ -1,0 +1,36 @@
+modLoader="javafml"
+# The version range of Forge this mod depends on. The notation
+# [36,) means any Forge version 36.x.x or newer. Forge 36 corresponds to
+# Minecraft 1.16.5.
+loaderVersion="[36,)"
+
+license="MIT"
+# A human‑friendly description of the modpack license. This field is not
+# consumed by Forge but may be displayed by mod loaders.
+#
+# The issue tracker, home page or update URL can be added here if desired.
+
+[[mods]]
+  # The unique identifier of your mod. It must be lower case and contain
+  # only alphanumeric characters, dashes or underscores. This identifier
+  # matches the @Mod annotation in your main mod class.
+  modId="speedycarts"
+  # The version of your mod displayed to users. When building using
+  # Gradle, `${file.jarVersion}` will be replaced with the version
+  # specified in build.gradle.
+  version="${file.jarVersion}"
+  # A user‑friendly name for your mod.
+  displayName="Speedy Carts"
+  # Optional: a URL for your mod's homepage.
+  displayURL="https://example.com"
+  # Credits to show in the mods list or about screen. Multiple authors
+  # can be separated by commas.
+  credits="Created by ChatGPT"
+  authors="ChatGPT"
+  # A multiline description shown on the mod list screen. Use triple
+  # single quotes to start and end the description in TOML.
+  description='''
+  Speedy Carts is a simple Forge mod for Minecraft 1.16.5 that accelerates
+  all minecarts by fifteen times their normal maximum speed. Place a cart
+  on a rail and watch it zoom!
+  '''
