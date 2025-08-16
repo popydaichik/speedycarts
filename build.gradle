@@ -1,0 +1,60 @@
+plugins {
+    // Apply the ForgeGradle plugin to add support for Forge modding.
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+}
+
+// Define mod metadata. The group reflects the reverse domain of the author and is
+// used as the base package for generated classes. The archivesBaseName is
+// the resulting jar name without the version suffix.
+group = 'com.example.speedycarts'
+version = '1.0.0'
+archivesBaseName = 'speedycarts'
+
+java {
+    // Use Java 8 as required by Minecraft 1.16.5.
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+minecraft {
+    // Specify the mappings and Minecraft version. Official mappings are used
+    // here as they are publicly available without requiring an account.
+    mappings channel: 'official', version: '1.16.5'
+
+    runs {
+        // Configure the run tasks for client and server to allow easy testing.
+        client {
+            workingDirectory = file('run')
+            property 'forge.logging.console.level', 'debug'
+        }
+        server {
+            workingDirectory = file('run')
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+repositories {
+    // Use the Forge maven repository to download the Minecraft Forge libraries.
+    maven {
+        name = 'Forge'
+        url = 'https://maven.minecraftforge.net/'
+    }
+    // Use Maven Central for any additional dependencies you may add later.
+    mavenCentral()
+}
+
+dependencies {
+    // Depend on Forge for Minecraft 1.16.5. The trailing number is the Forge
+    // version; 36.2.39 is one of the latest for 1.16.5 as of this writing.
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+}
+
+// Ensure UTF‑8 encoding when compiling. Minecraft resources expect UTF‑8.
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
